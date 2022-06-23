@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_color">
+    android:background="@color/background_color"
+    tools:ignore="MissingDefaultResource">
 
     <ImageView
         android:layout_width="match_parent"
@@ -12,7 +14,7 @@
         app:srcCompat="@drawable/background" />
 
     <TextView
-        android:id="@+id/result"
+        android:id="@+id/resultView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:text="0"
@@ -48,7 +50,7 @@
         app:layout_constraintBottom_toTopOf="@id/btn_7"
         app:layout_constraintEnd_toStartOf="@id/btn_erase"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/result"
+        app:layout_constraintTop_toBottomOf="@id/resultView"
         app:layout_constraintVertical_weight="1"
         app:rippleColor="@color/light_blue"
         app:strokeColor="@color/btn_border_color" />
@@ -73,7 +75,7 @@
         app:layout_constraintBottom_toTopOf="@id/btn_8"
         app:layout_constraintEnd_toStartOf="@id/btn_percent"
         app:layout_constraintStart_toEndOf="@id/btn_ac"
-        app:layout_constraintTop_toBottomOf="@id/result"
+        app:layout_constraintTop_toBottomOf="@id/resultView"
         app:layout_constraintVertical_weight="1"
         app:rippleColor="@color/light_blue"
         app:strokeColor="@color/btn_border_color" />
@@ -98,7 +100,7 @@
         app:layout_constraintBottom_toTopOf="@id/btn_9"
         app:layout_constraintEnd_toStartOf="@id/btn_division"
         app:layout_constraintStart_toEndOf="@id/btn_erase"
-        app:layout_constraintTop_toBottomOf="@id/result"
+        app:layout_constraintTop_toBottomOf="@id/resultView"
         app:layout_constraintVertical_weight="1"
         app:rippleColor="@color/light_blue"
         app:strokeColor="@color/btn_border_color" />
@@ -124,7 +126,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@id/btn_percent"
-        app:layout_constraintTop_toBottomOf="@id/result"
+        app:layout_constraintTop_toBottomOf="@id/resultView"
         app:layout_constraintVertical_weight="1"
         app:rippleColor="@color/light_blue"
         app:strokeColor="@color/btn_border_color" />
