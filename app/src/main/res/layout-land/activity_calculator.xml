@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_color">
+
 
     <ImageView
         android:layout_width="match_parent"
@@ -12,21 +14,18 @@
         app:srcCompat="@drawable/background" />
 
     <TextView
-        android:id="@+id/result"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:text="0"
-        android:textAlignment="textStart"
+        android:id="@+id/resultView"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="end|bottom"
+        android:text="@string/default_value"
         android:textColor="@color/white"
-        android:textDirection="rtl"
         android:textSize="@dimen/result_text"
-        app:layout_constraintBottom_toTopOf="@id/btn_division"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_ac"
+        app:layout_constraintHorizontal_weight="5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_weight="5" />
-
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_ac"
@@ -47,9 +46,9 @@
         app:iconPadding="0dp"
         app:layout_constraintBottom_toTopOf="@id/btn_7"
         app:layout_constraintEnd_toStartOf="@id/btn_erase"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/result"
-        app:layout_constraintVertical_weight="1"
+        app:layout_constraintStart_toEndOf="@id/resultView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_weight="1"
         app:rippleColor="@color/light_blue"
         app:strokeColor="@color/btn_border_color" />
 
@@ -59,6 +58,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:backgroundTint="@color/function_btn"
+        android:elevation="6dp"
         android:insetTop="0dp"
         android:insetBottom="0dp"
         android:paddingLeft="0dp"
@@ -68,13 +68,14 @@
         android:text="@string/key_erase"
         android:textColor="@color/black"
         android:textSize="@dimen/btn_text_size"
+        android:translationZ="4dp"
         app:cornerRadius="0dp"
         app:iconPadding="0dp"
         app:layout_constraintBottom_toTopOf="@id/btn_8"
         app:layout_constraintEnd_toStartOf="@id/btn_percent"
         app:layout_constraintStart_toEndOf="@id/btn_ac"
-        app:layout_constraintTop_toBottomOf="@id/result"
-        app:layout_constraintVertical_weight="1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_weight="1"
         app:rippleColor="@color/light_blue"
         app:strokeColor="@color/btn_border_color" />
 
@@ -98,8 +99,8 @@
         app:layout_constraintBottom_toTopOf="@id/btn_9"
         app:layout_constraintEnd_toStartOf="@id/btn_division"
         app:layout_constraintStart_toEndOf="@id/btn_erase"
-        app:layout_constraintTop_toBottomOf="@id/result"
-        app:layout_constraintVertical_weight="1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_weight="1"
         app:rippleColor="@color/light_blue"
         app:strokeColor="@color/btn_border_color" />
 
@@ -122,10 +123,9 @@
         app:iconPadding="0dp"
         app:layout_constraintBottom_toTopOf="@id/btn_multiplication"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@id/btn_percent"
-        app:layout_constraintTop_toBottomOf="@id/result"
-        app:layout_constraintVertical_weight="1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_weight="1"
         app:rippleColor="@color/light_blue"
         app:strokeColor="@color/btn_border_color" />
 
@@ -148,9 +148,9 @@
         app:iconPadding="0dp"
         app:layout_constraintBottom_toTopOf="@id/btn_4"
         app:layout_constraintEnd_toStartOf="@id/btn_8"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/resultView"
         app:layout_constraintTop_toBottomOf="@id/btn_ac"
-        app:layout_constraintVertical_weight="1"
+        app:layout_constraintHorizontal_weight="1"
         app:rippleColor="@color/light_blue"
         app:strokeColor="@color/btn_border_color" />
 
@@ -175,7 +175,7 @@
         app:layout_constraintEnd_toStartOf="@id/btn_9"
         app:layout_constraintStart_toEndOf="@id/btn_7"
         app:layout_constraintTop_toBottomOf="@id/btn_erase"
-        app:layout_constraintVertical_weight="1"
+        app:layout_constraintHorizontal_weight="1"
         app:rippleColor="@color/light_blue"
         app:strokeColor="@color/btn_border_color" />
 
@@ -200,7 +200,7 @@
         app:layout_constraintEnd_toStartOf="@id/btn_multiplication"
         app:layout_constraintStart_toEndOf="@id/btn_8"
         app:layout_constraintTop_toBottomOf="@id/btn_percent"
-        app:layout_constraintVertical_weight="1"
+        app:layout_constraintHorizontal_weight="1"
         app:rippleColor="@color/light_blue"
         app:strokeColor="@color/btn_border_color" />
 
@@ -225,7 +225,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/btn_9"
         app:layout_constraintTop_toBottomOf="@id/btn_division"
-        app:layout_constraintVertical_weight="1"
+        app:layout_constraintHorizontal_weight="1"
         app:rippleColor="@color/light_blue"
         app:strokeColor="@color/btn_border_color" />
 
@@ -248,9 +248,9 @@
         app:iconPadding="0dp"
         app:layout_constraintBottom_toTopOf="@id/btn_1"
         app:layout_constraintEnd_toStartOf="@id/btn_5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/resultView"
         app:layout_constraintTop_toBottomOf="@id/btn_7"
-        app:layout_constraintVertical_weight="1"
+        app:layout_constraintHorizontal_weight="1"
         app:rippleColor="@color/light_blue"
         app:strokeColor="@color/btn_border_color" />
 
@@ -275,7 +275,7 @@
         app:layout_constraintEnd_toStartOf="@id/btn_6"
         app:layout_constraintStart_toEndOf="@id/btn_4"
         app:layout_constraintTop_toBottomOf="@id/btn_8"
-        app:layout_constraintVertical_weight="1"
+        app:layout_constraintHorizontal_weight="1"
         app:rippleColor="@color/light_blue"
         app:strokeColor="@color/btn_border_color" />
 
@@ -300,7 +300,7 @@
         app:layout_constraintEnd_toStartOf="@id/btn_minus"
         app:layout_constraintStart_toEndOf="@id/btn_5"
         app:layout_constraintTop_toBottomOf="@id/btn_9"
-        app:layout_constraintVertical_weight="1"
+        app:layout_constraintHorizontal_weight="1"
         app:rippleColor="@color/light_blue"
         app:strokeColor="@color/btn_border_color" />
 
@@ -325,7 +325,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/btn_6"
         app:layout_constraintTop_toBottomOf="@id/btn_multiplication"
-        app:layout_constraintVertical_weight="1"
+        app:layout_constraintHorizontal_weight="1"
         app:rippleColor="@color/light_blue"
         app:strokeColor="@color/btn_border_color" />
 
@@ -348,9 +348,9 @@
         app:iconPadding="0dp"
         app:layout_constraintBottom_toTopOf="@id/btn_0"
         app:layout_constraintEnd_toStartOf="@id/btn_2"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/resultView"
         app:layout_constraintTop_toBottomOf="@id/btn_4"
-        app:layout_constraintVertical_weight="1"
+        app:layout_constraintHorizontal_weight="1"
         app:rippleColor="@color/light_blue"
         app:strokeColor="@color/btn_border_color" />
 
@@ -375,7 +375,7 @@
         app:layout_constraintEnd_toStartOf="@id/btn_3"
         app:layout_constraintStart_toEndOf="@id/btn_1"
         app:layout_constraintTop_toBottomOf="@id/btn_5"
-        app:layout_constraintVertical_weight="1"
+        app:layout_constraintHorizontal_weight="1"
         app:rippleColor="@color/light_blue"
         app:strokeColor="@color/btn_border_color" />
 
@@ -400,7 +400,7 @@
         app:layout_constraintEnd_toStartOf="@id/btn_plus"
         app:layout_constraintStart_toEndOf="@id/btn_2"
         app:layout_constraintTop_toBottomOf="@id/btn_6"
-        app:layout_constraintVertical_weight="1"
+        app:layout_constraintHorizontal_weight="1"
         app:rippleColor="@color/light_blue"
         app:strokeColor="@color/btn_border_color" />
 
@@ -425,7 +425,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/btn_3"
         app:layout_constraintTop_toBottomOf="@id/btn_minus"
-        app:layout_constraintVertical_weight="1"
+        app:layout_constraintHorizontal_weight="1"
         app:rippleColor="@color/light_blue"
         app:strokeColor="@color/btn_border_color" />
 
@@ -448,11 +448,12 @@
         app:iconPadding="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/btn_dot"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/resultView"
         app:layout_constraintTop_toBottomOf="@id/btn_1"
-        app:layout_constraintVertical_weight="1"
+        app:layout_constraintHorizontal_weight="1"
         app:rippleColor="@color/light_blue"
-        app:strokeColor="@color/btn_border_color" />
+        app:strokeColor="@color/btn_border_color"
+        tools:ignore="UnknownId" />
 
     <Button
         android:id="@+id/btn_dot"
@@ -475,7 +476,7 @@
         app:layout_constraintEnd_toStartOf="@id/btn_result"
         app:layout_constraintStart_toEndOf="@id/btn_2"
         app:layout_constraintTop_toBottomOf="@id/btn_3"
-        app:layout_constraintVertical_weight="1"
+        app:layout_constraintHorizontal_weight="1"
         app:rippleColor="@color/light_blue"
         app:strokeColor="@color/btn_border_color" />
 
@@ -500,7 +501,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/btn_dot"
         app:layout_constraintTop_toBottomOf="@id/btn_plus"
-        app:layout_constraintVertical_weight="1"
+        app:layout_constraintHorizontal_weight="1"
         app:rippleColor="@color/white"
         app:strokeColor="@color/btn_border_color" />
 </androidx.constraintlayout.widget.ConstraintLayout>
