@@ -4,8 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.bluetooth.le.AdvertiseData;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.myhomework.R;
@@ -59,7 +63,6 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorV
         operators.put(R.id.btn_minus, Operators.SUB);
         operators.put(R.id.btn_multiplication, Operators.MLT);
         operators.put(R.id.btn_division, Operators.DIV);
-        operators.put(R.id.btn_percent, Operators.PRC);
 
         View.OnClickListener operatorClickListener = v -> calculatorPresenter.onOperatorPressed(operators.get(v.getId()));
 
@@ -73,7 +76,6 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorV
         findViewById(R.id.btn_ac).setOnClickListener(v -> calculatorPresenter.clearAll());
         findViewById(R.id.btn_percent).setOnClickListener(v -> calculatorPresenter.getPercent());
         findViewById(R.id.btn_erase).setOnClickListener(v -> calculatorPresenter.erase(result.getText().toString()));
-
 
     }
 

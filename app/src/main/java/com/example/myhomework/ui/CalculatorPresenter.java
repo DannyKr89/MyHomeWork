@@ -69,13 +69,27 @@ public class CalculatorPresenter {
         if (num2 == null && num1 != 0) {
             num1 = num1 / 100;
             view.showResult(String.valueOf(num1));
-            num2 = null;
+            num2 = 0.0;
         } else if (num2 != null && num1 != 0) {
-            num1 = num1 + (num1 / 100 * num2);
-            view.showResult(String.valueOf(num1));
-            num2 = null;
-        }
+            if (selectedOperator == Operators.ADD) {
+                num1 = calculator.perform(num1,num2,Operators.PRCADD);
+                view.showResult(String.valueOf(num1));
+                num2 = 0.0;
+            } else if (selectedOperator == Operators.SUB) {
+                num1 = calculator.perform(num1,num2,Operators.PRCSUB);
+                view.showResult(String.valueOf(num1));
+                num2 = 0.0;
+            } else if (selectedOperator == Operators.MLT) {
+                num1 = calculator.perform(num1,num2,Operators.PRCMLT);
+                view.showResult(String.valueOf(num1));
+                num2 = 0.0;
+            } else if (selectedOperator == Operators.DIV) {
+                num1 = calculator.perform(num1,num2,Operators.PRCDIV);
+                view.showResult(String.valueOf(num1));
+                num2 = 0.0;
+            }
 
+        }
     }
 
     public void erase(String text) {
