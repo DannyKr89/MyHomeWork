@@ -14,13 +14,7 @@
         android:theme="@style/Theme.MyHomeWork"
         tools:targetApi="31">
         <activity
-            android:name=".EmsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".InputTypeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
+            android:name=".ui.CalculatorActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
