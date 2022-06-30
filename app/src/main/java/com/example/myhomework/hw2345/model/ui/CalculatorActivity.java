@@ -1,20 +1,15 @@
-package com.example.myhomework.ui;
+package com.example.myhomework.hw2345.model.ui;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.bluetooth.le.AdvertiseData;
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.myhomework.R;
-import com.example.myhomework.model.CalculatorImpl;
-import com.example.myhomework.model.Operators;
+import com.example.myhomework.hw2345.model.CalculatorImpl;
+import com.example.myhomework.hw2345.model.Operators;
 
 import java.util.HashMap;
 import java.util.Map;

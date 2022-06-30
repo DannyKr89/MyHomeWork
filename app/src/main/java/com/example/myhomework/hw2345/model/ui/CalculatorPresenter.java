@@ -1,9 +1,7 @@
-package com.example.myhomework.ui;
+package com.example.myhomework.hw2345.model.ui;
 
-import android.telephony.CellSignalStrength;
-
-import com.example.myhomework.model.Calculator;
-import com.example.myhomework.model.Operators;
+import com.example.myhomework.hw2345.model.Calculator;
+import com.example.myhomework.hw2345.model.Operators;
 
 public class CalculatorPresenter {
 

@@ -1,4 +1,4 @@
-package com.example.myhomework.model;
+package com.example.myhomework.hw2345.model;
 
 public class CalculatorImpl implements Calculator {
     @Override
