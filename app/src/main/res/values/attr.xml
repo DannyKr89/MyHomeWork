@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="calcNumBtn" format="reference" />
+    <attr name="calcFunBtn" format="reference" />
+    <attr name="calcResBtn" format="reference" />
+</resources>
