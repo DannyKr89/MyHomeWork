@@ -9,18 +9,25 @@ public class CalculatorPresenter {
 
     private CalculatorView view;
     private Calculator calculator;
-
     private double num1;
     private Double num2 = null;
     private Operators selectedOperator;
+    private int dotCount = 1;
     private boolean dot = false;
 
+    public double getNum1() {
+        return num1;
+    }
+
+    public void setNum1(double num1) {
+        this.num1 = num1;
+    }
     public CalculatorPresenter(CalculatorView view, Calculator calculator) {
         this.view = view;
         this.calculator = calculator;
     }
 
-    public void onDigitPressed(int digit) {
+    public void onDigitPressed(double digit) {
         if (!dot) {
             if (num2 == null) {
                 num1 = num1 * 10 + digit;
@@ -31,10 +38,12 @@ public class CalculatorPresenter {
             }
         } else {
             if (num2 == null) {
-                num1 = num1 * 10 + digit;
+                num1 = num1 + digit / (10 * dotCount);
+                dotCount *= 10;
                 view.showResult(String.valueOf(num1));
             } else {
-                num2 = num2 * 10 + digit;
+                num2 = num2 + digit / (10 * dotCount);
+                dotCount *= 10;
                 view.showResult(String.valueOf(num2));
             }
         }
@@ -47,6 +56,8 @@ public class CalculatorPresenter {
             view.showResult(String.valueOf(num1));
         }
         num2 = 0.0;
+        dotCount = 1;
+        dot = false;
         selectedOperator = operator;
     }
 
@@ -61,6 +72,8 @@ public class CalculatorPresenter {
     public void clearAll() {
         num1 = 0.0;
         num2 = null;
+        dotCount = 1;
+        dot = false;
         selectedOperator = null;
         view.showResult(String.valueOf(num1));
     }
@@ -72,19 +85,19 @@ public class CalculatorPresenter {
             num2 = 0.0;
         } else if (num2 != null && num1 != 0) {
             if (selectedOperator == Operators.ADD) {
-                num1 = calculator.perform(num1,num2,Operators.PRCADD);
+                num1 = calculator.perform(num1, num2, Operators.PRCADD);
                 view.showResult(String.valueOf(num1));
                 num2 = 0.0;
             } else if (selectedOperator == Operators.SUB) {
-                num1 = calculator.perform(num1,num2,Operators.PRCSUB);
+                num1 = calculator.perform(num1, num2, Operators.PRCSUB);
                 view.showResult(String.valueOf(num1));
                 num2 = 0.0;
             } else if (selectedOperator == Operators.MLT) {
-                num1 = calculator.perform(num1,num2,Operators.PRCMLT);
+                num1 = calculator.perform(num1, num2, Operators.PRCMLT);
                 view.showResult(String.valueOf(num1));
                 num2 = 0.0;
             } else if (selectedOperator == Operators.DIV) {
-                num1 = calculator.perform(num1,num2,Operators.PRCDIV);
+                num1 = calculator.perform(num1, num2, Operators.PRCDIV);
                 view.showResult(String.valueOf(num1));
                 num2 = 0.0;
             }
