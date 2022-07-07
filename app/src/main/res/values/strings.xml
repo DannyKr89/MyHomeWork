@@ -26,4 +26,9 @@
     <string name="key_dot">.</string>
     <string name="key_result">=</string>
     <string name="default_value">"0.0"</string>
+    <string name="back">back</string>
+    <string name="themes">Темы</string>
+    <string name="default_theme">Классическая тема</string>
+    <string name="red_green_theme">Красный/Зеленый</string>
+    <string name="black_white_theme">Черный/Белый</string>
 </resources>
