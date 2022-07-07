@@ -1,7 +1,7 @@
 package com.example.myhomework.hw2345.model.ui;
 
-import com.example.myhomework.hw2345.model.Calculator;
-import com.example.myhomework.hw2345.model.Operators;
+import com.example.myhomework.hw2345.model.model.Calculator;
+import com.example.myhomework.hw2345.model.model.Operators;
 
 public class CalculatorPresenter {
 
@@ -77,7 +77,7 @@ public class CalculatorPresenter {
     }
 
     public void getPercent() {
-        if (num2 == null && num1 != 0) {
+        if (num2 == null || num2 == 0.0 && num1 != 0) {
             num1 = num1 / 100;
             view.showResult(String.valueOf(num1));
             num2 = 0.0;

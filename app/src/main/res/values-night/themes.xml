@@ -12,8 +12,21 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="calcNumBtn">@style/DefaultStyle.numbs</item>
+        <item name="calcFunBtn">@style/DefaultStyle</item>
+        <item name="calcResBtn">@style/DefaultStyle.result</item>
+    </style>
+
+    <style name="Theme.MyHomeWork.V2" >
         <item name="calcNumBtn">@style/DefaultStyle.numbs.V2</item>
         <item name="calcFunBtn">@style/DefaultStyle.V2</item>
         <item name="calcResBtn">@style/DefaultStyle.result.V2</item>
     </style>
+
+    <style name="Theme.MyHomeWork.V3" >
+        <item name="calcNumBtn">@style/DefaultStyle.numbs.V3</item>
+        <item name="calcFunBtn">@style/DefaultStyle.V3</item>
+        <item name="calcResBtn">@style/DefaultStyle.result.V3</item>
+    </style>
+
 </resources>

@@ -2,5 +2,5 @@
 <resources>
     <dimen name="result_text">60sp</dimen>
     <dimen name="btn_text_size">34sp</dimen>
-    <dimen name="themeBtnSize">10sp</dimen>
+    <dimen name="default_padding">15sp</dimen>
 </resources>

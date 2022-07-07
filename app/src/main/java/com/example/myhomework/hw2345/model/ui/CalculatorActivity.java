@@ -1,15 +1,24 @@
 package com.example.myhomework.hw2345.model.ui;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.myhomework.R;
-import com.example.myhomework.hw2345.model.CalculatorImpl;
-import com.example.myhomework.hw2345.model.Operators;
+import com.example.myhomework.hw2345.model.model.CalculatorImpl;
+import com.example.myhomework.hw2345.model.model.Operators;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,12 +26,17 @@ import java.util.Map;
 public class CalculatorActivity extends AppCompatActivity implements CalculatorView {
     private TextView result;
     private CalculatorPresenter calculatorPresenter;
+    int theme = R.style.Theme_MyHomeWork;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_calculator);
 
+        SharedPreferences preferences = getSharedPreferences("themes.xml", Context.MODE_PRIVATE);
+        theme = preferences.getInt("theme", 0);
+        setTheme(theme);
+
+        setContentView(R.layout.activity_calculator);
         result = findViewById(R.id.resultView);
 
         calculatorPresenter = new CalculatorPresenter(this, new CalculatorImpl());
@@ -70,6 +84,27 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorV
         findViewById(R.id.btn_ac).setOnClickListener(v -> calculatorPresenter.clearAll());
         findViewById(R.id.btn_percent).setOnClickListener(v -> calculatorPresenter.getPercent());
         findViewById(R.id.btn_erase).setOnClickListener(v -> calculatorPresenter.erase(result.getText().toString()));
+
+        ActivityResultLauncher<Intent> themeLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+            @Override
+            public void onActivityResult(ActivityResult result) {
+                if (result.getResultCode() == Activity.RESULT_OK) {
+                    Intent intent = result.getData();
+                    preferences.edit().putInt("theme", intent.getIntExtra("theme",0)).commit();
+                    recreate();
+                } else {
+                    Toast.makeText(CalculatorActivity.this, "error", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        findViewById(R.id.btn_settings).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent openSettings = new Intent(CalculatorActivity.this, SettingsActivity.class);
+                themeLauncher.launch(openSettings);
+            }
+        });
 
     }
 
